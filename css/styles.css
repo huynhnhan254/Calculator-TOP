@@ -1,0 +1,22 @@
+/* Reset CSS */
+body, header, nav, main, footer, img, h1, h3 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #F7FDF9;
+}
+
+button {
+    font-size: 16px;
+}
