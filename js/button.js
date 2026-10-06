@@ -17,6 +17,9 @@ button.appendChild(numberDiv);
 let numbA = "";
 let numbB = "";
 let op = "";
+let lastB = "";
+let lastOp = "";
+
 const numberButtons = [];
 
 for (let i = 0; i <= 9; i++) {
@@ -77,9 +80,15 @@ for (let i = 0; i < operatorArr.length; i++) {
 
         if (newOp === "=") {
             if (numbA !== "" && numbB != "" && op !== "") {
+                lastB = numbB;
+                lastOp = op;
+
                 numbA = operate(Number(numbA), Number(numbB), op);
                 numbB = "";
                 op = "";
+                screen.textContent = numbA;
+            } else if (numbA !== "" && op === "" && lastB !="" && lastOp !== "") {
+                numbA = operate(Number(numbA), Number(lastB), lastOp);
                 screen.textContent = numbA;
             }
         } else {
