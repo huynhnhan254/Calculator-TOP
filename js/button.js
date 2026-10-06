@@ -21,13 +21,14 @@ let lastB = "";
 let lastOp = "";
 
 const numberButtons = [];
+const numbers = [7, 8, 9, 4, 5, 6, 1, 2, 3, 0];
 
 for (let i = 0; i <= 9; i++) {
     const number = document.createElement("button");
-    number.textContent = i;
+    number.textContent = numbers[i];
     numberDiv.appendChild(number);
 
-    numberButtons.push(number);
+    numberButtons[numbers[i]] = number;
 
     number.addEventListener("click", ()=>{
         if (op === "") {
@@ -61,7 +62,7 @@ decimal.addEventListener("click", () => {
 });
 
 // OPERATOR
-const operatorArr = ['+', '-', '*', '/', '='];
+const operatorArr = ['+', '-', '*', '/'];
 const operatorDiv = document.createElement("div");
 const operatorButtons = {};
 
@@ -101,8 +102,29 @@ for (let i = 0; i < operatorArr.length; i++) {
             screen.textContent = numbA + op;
         }
     });
-
 }
+
+// EQUAL
+const equals = document.createElement("button");
+equals.textContent = "=";
+numberDiv.appendChild(equals);
+
+operatorButtons["="] = equals;
+
+equals.addEventListener("click", () => {
+    if (numbA !== "" && numbB !== "" && op !== "") {
+        lastB = numbB;
+        lastOp = op;
+
+        numbA = operate(Number(numbA), Number(numbB), op);
+        numbB = "";
+        op = "";
+        screen.textContent = numbA;
+    } else if (numbA !== "" && op === "" && lastB !== "" && lastOp !== "") {
+        numbA = operate(Number(numbA), Number(lastB), lastOp);
+        screen.textContent = numbA;
+    }
+});
 
 // CLEAR
 const clearBtn = document.createElement("div");

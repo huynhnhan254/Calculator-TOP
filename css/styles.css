@@ -5,18 +5,123 @@ body, header, nav, main, footer, img, h1, h3 {
     border: 0;
 }
 
-*{
+* {
     box-sizing: border-box;
 }
 
-#container {
+body {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    width: 100%;
-    background-color: #F7FDF9;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #142F44;
 }
 
+#container {
+    width: 350px;
+    padding: 15px;
+    background-color: #142F44;
+    border-radius: 10px;
+}
+
+/* Display */
+.screen {
+    height: 60px;
+    margin-bottom: 10px;
+    padding: 10px;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    background-color: #205B7A;
+    color: white;
+
+    border-radius: 6px;
+    font-size: 25px;
+}
+
+/* All button sections */
+.button {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+/* Number buttons */
+.numberBtn {
+    width: 75%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.numberBtn button {
+    width: calc(33.33% - 5px);
+}
+
+/* Operators */
+.operatorBtn {
+    width: calc(25% - 5px);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.operatorBtn button {
+    flex: 1;
+}
+
+/* Clear buttons */
+.clearBtn {
+    width: 100%;
+    display: flex;
+    gap: 5px;
+}
+
+.clearBtn button {
+    flex: 1;
+}
+
+/* General buttons */
 button {
-    font-size: 16px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+
+    background-color: #1D3849;
+    color: white;
+}
+
+/* Operators */
+.operatorBtn button {
+    background-color: #A2BBCF;
+    color: #142F44;
+}
+
+/* Equal button */
+.numberBtn button:last-child {
+    background-color: #A2BBCF;
+    color: #142F44;
+}
+
+/* Clear / Backspace */
+.clearBtn button {
+    background-color: #A2BBCF;
+    color: #142F44;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+footer {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #A2BBCF;
+    text-align: center;
 }
