@@ -16,7 +16,7 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-color: #142F44;
+    background-color: #848084;
 }
 
 #container {
@@ -122,6 +122,6 @@ button:hover {
 footer {
     margin-top: 15px;
     font-size: 14px;
-    color: #A2BBCF;
+    color: #394a58;
     text-align: center;
 }

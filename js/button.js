@@ -165,17 +165,14 @@ backspace.addEventListener("click", () => {
 document.addEventListener("keydown", (event) => {
     if (event.key >= "0" && event.key <= "9") {
         numberButtons[Number(event.key)].click();
-    }
-
-    if (event.key in operatorButtons) {
+    } else if (operatorArr.includes(event.key)) {
         operatorButtons[event.key].click();
-    }
-
-    if (event.key === "Enter") {
-        operatorButtons["="].click();
-    }
-
-    if (event.key === ".") {
+    } else if (event.key === "Enter" || event.key === "=") {
+        event.preventDefault();
+        equals.click();
+    } else if (event.key === ".") {
         decimal.click();
+    } else if (event.key === "Backspace") {
+        backspace.click();
     }
 });
